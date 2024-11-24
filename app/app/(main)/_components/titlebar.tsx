@@ -30,31 +30,29 @@ export const TitleBar = () => {
         };
     }, []);
 
-    return(
-        <div
-          className="h-[40px] w-full bg-zinc-800 select-none flex justify-end
-          fixed top-0 left-0 right-0" data-tauri-drag-region
-        >
-          <div
-            id="titlebar-minimize"
-            className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
-          >
-          <Minus size={20} color="#F5FFFa" strokeWidth={0.5} className="h-2 w-2" />
-          </div>
-
-          <div
-            id="titlebar-maximize"
-            className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
-          >
-          <Square size={12} color="#F5FFFa" strokeWidth={1} className="h-2 w-2" />
-          </div>
-
-          <div
-            id="titlebar-close"
-            className="flex justify-center items-center w-[45px] h-[40px] hover:bg-red-500"
-          >
-          <X size={20} color="#F5FFFa" strokeWidth={1} className="h-2 w-2" />
-          </div>
-        </div>
-    );
+  return (
+    <div
+      className="h-[40px] w-full bg-[#1E1E1E] select-none flex justify-end fixed top-0 left-0 right-0"
+      data-tauri-drag-region
+    >
+      <div
+        id="titlebar-minimize"
+        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
+      >
+        <Minus size={20} color="#F5FFFa" strokeWidth={0.5} classname="h-2 w-2 " />
+      </div>
+      <div
+        id="titlebar-maximize"
+        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
+      >
+        <Square size={12} color="#F5FFFa" strokeWidth={1}classname="h-2 w-2" />
+      </div>
+      <div
+        id="titlebar-close"
+        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-red-500"
+      >
+        <X size={20} color="#F5FFFa" strokeWidth={1}classname="h-2 w-2" />
+      </div>
+    </div>
+  );
 }
