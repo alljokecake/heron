@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { Window } from "@tauri-apps/api/window";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import { X, Minus, Square } from "lucide-react";
 
 export const TitleBar = () => {
-    const appWindow = new Window('heron');
+    // TODO: Handle titlebar-close
+    const appWindow = getCurrentWindow();
     useEffect(() => {
         const minimizeButton = document.getElementById("titlebar-minimize");
         const maximizeButton = document.getElementById("titlebar-maximize");
