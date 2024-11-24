@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { X, Minus, Square } from "lucide-react";
 
+// TODO: (titlebar)/_components
 export const TitleBar = () => {
     // TODO: Handle titlebar-close
     const appWindow = getCurrentWindow();

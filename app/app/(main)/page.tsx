@@ -1,10 +1,8 @@
-import { Test } from "./_components/test";
+import { Footer } from "./_components/footer";
 
 const MainPage = () => {
     return(
-        <div className="min-h-full flex flex-col bg-red-500">
-          <Test />
-        </div>
+        <Footer />
     );
 }
 
