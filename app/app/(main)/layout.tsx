@@ -8,9 +8,9 @@ const MainLayout = ({
     return (
         <div className="h-full bg-[#1E1E1E]">
           <TitleBar />
-          <main className="h-full pt-10">
+          <div className="min-h-screen flex-grow pt-10">
             {children}
-          </main>
+          </div>
         </div>
     );
 }

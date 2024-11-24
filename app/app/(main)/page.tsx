@@ -1,8 +1,12 @@
-import { Footer } from "./_components/footer";
+import { NavBar } from "./_components/navbar";
+import { Tree } from "./_components/tree";
 
 const MainPage = () => {
     return(
-        <Footer />
+        <div>
+          <NavBar />
+          <Tree />
+        </div>
     );
 }
 
