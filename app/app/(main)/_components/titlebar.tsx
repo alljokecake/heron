@@ -39,19 +39,19 @@ export const TitleBar = () => {
         id="titlebar-minimize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
       >
-        <Minus size={20} color="#F5FFFa" strokeWidth={0.5} classname="h-2 w-2 " />
+        <Minus size={20} color="#F5FFFa" strokeWidth={0.5} />
       </div>
       <div
         id="titlebar-maximize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333]"
       >
-        <Square size={12} color="#F5FFFa" strokeWidth={1}classname="h-2 w-2" />
+        <Square size={12} color="#F5FFFa" strokeWidth={1}/>
       </div>
       <div
         id="titlebar-close"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-red-500"
       >
-        <X size={20} color="#F5FFFa" strokeWidth={1}classname="h-2 w-2" />
+        <X size={20} color="#F5FFFa" strokeWidth={1}/>
       </div>
     </div>
   );
