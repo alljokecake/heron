@@ -20,8 +20,8 @@ export const NavBar = () => {
       </div>
 
       <div className="flex items-center justify-center space-x-3 px-4 flex-grow">
-        <div className="h-[30px] bg-[#252525] w-full max-w-full rounded-lg"></div>
-        <div className="h-[30px] bg-[#252525] w-[350px] max-w-full rounded-lg
+        <div className="h-[30px] bg-[#252525] w-full max-w-full rounded-md"></div>
+        <div className="h-[30px] bg-[#252525] w-[350px] max-w-full rounded-md
         text-[#616161] pt-1 pl-2">
           Search
         </div>
