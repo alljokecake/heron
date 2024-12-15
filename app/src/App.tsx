@@ -1,7 +1,6 @@
 import "./App.css";
 import { TitleBar } from "./components/titlebar/titlebar";
-import { NavBar } from "./components/navbar";
-import { SideBar } from "./components/sidebar";
+import { NavBar } from "./components/navbar/navbar";
 import { Panel } from "./components/panel/panel";
 
 function App() {
@@ -14,8 +13,7 @@ function App() {
                 <NavBar />
               </div>
             </div>
-            <div className="w-full h-full flex bg-[#1e1e1e]">
-              <SideBar />
+            <div className="fixed h-full w-full bg-[#1e1e1e]">
               <Panel />
             </div>
           </div>

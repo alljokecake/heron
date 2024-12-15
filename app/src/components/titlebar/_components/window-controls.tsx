@@ -3,7 +3,10 @@ import { X, Minus, Square } from "lucide-react";
 
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
-const TitleBarRight = () => {
+// TODO: Set "maximized" icon.
+// TODO: Switch icon sets to "@fluentui/react-icons" ChromeMinimize,
+// ChromeMaximize | ChromeRestore, ChromeClose
+const WindowControls = () => {
   const appWindow = getCurrentWindow();
 
   useEffect(() => {
@@ -36,22 +39,22 @@ const TitleBarRight = () => {
         id="titlebar-minimize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <Minus size={20} color="#F5FFFa" strokeWidth={0.5} />
+        <Minus size={18} color="#FFFFFF" strokeWidth={1.5} />
       </div>
       <div
         id="titlebar-maximize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <Square size={12} color="#F5FFFa" strokeWidth={1} />
+        <Square size={13} color="#FFFFFF" strokeWidth={2} />
       </div>
       <div
         id="titlebar-close"
-        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-red-500 focus:outline-none"
+        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#D92B2B] focus:outline-none"
       >
-        <X size={20} color="#F5FFFa" strokeWidth={1} />
+        <X size={20} color="#FFFFFF" strokeWidth={2} />
       </div>
     </div>
   );
 };
 
-export default TitleBarRight;
+export default WindowControls;

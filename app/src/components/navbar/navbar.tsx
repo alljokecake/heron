@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight, Dot, FolderSearch2, Search, Settings } from "lucide-react";
 
 export const NavBar = () => {
