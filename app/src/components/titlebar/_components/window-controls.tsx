@@ -43,21 +43,21 @@ const WindowControls = () => {
     <div className="absolute top-0 right-0 h-full flex items-center">
       <div
         id="titlebar-minimize"
-        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
+        className="flex justify-center items-center w-[47px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <VscChromeMinimize size={17} color="#FFFFFF" strokeWidth={0.5} />
+        <VscChromeMinimize size={16} color="#FFFFFF" strokeWidth={0.25} />
       </div>
       <div
         id="titlebar-maximize"
-        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
+        className="flex justify-center items-center w-[47px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <VscChromeMaximize size={17} color="#FFFFFF" strokeWidth={0.5} />
+        <VscChromeMaximize size={16} color="#FFFFFF" strokeWidth={0.25} />
       </div>
       <div
         id="titlebar-close"
-        className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#D92B2B] focus:outline-none"
+        className="flex justify-center items-center w-[47px] h-[40px] hover:bg-[#C42B1C] focus:outline-none"
       >
-        <VscChromeClose size={17} color="#FFFFFF" strokeWidth={0.5} />
+        <VscChromeClose size={16} color="#FFFFFF" strokeWidth={0.25} />
       </div>
     </div>
   );
