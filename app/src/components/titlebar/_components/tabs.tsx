@@ -1,6 +1,3 @@
-import { Plus } from "lucide-react";
-import { Button } from "../ui/button";
-
 const Tabs = () => {
   return (
     <div className="flex items-center space-x-0 pl-3 max-w-[1000px]">

@@ -1,13 +1,19 @@
 import { useEffect } from "react";
-import { X, Minus, Square } from "lucide-react";
+
+// TODO: Set restore
+import {
+  VscChromeMinimize,
+  VscChromeMaximize,
+  VscChromeRestore,
+  VscChromeClose,
+} from "react-icons/vsc";
 
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
-// TODO: Set "maximized" icon.
-// TODO: Switch icon sets to "@fluentui/react-icons" ChromeMinimize,
-// ChromeMaximize | ChromeRestore, ChromeClose
 const WindowControls = () => {
   const appWindow = getCurrentWindow();
+
+  // appWindow.isMaximized
 
   useEffect(() => {
     const minimizeButton = document.getElementById("titlebar-minimize");
@@ -39,19 +45,19 @@ const WindowControls = () => {
         id="titlebar-minimize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <Minus size={18} color="#FFFFFF" strokeWidth={1.5} />
+        <VscChromeMinimize size={17} color="#FFFFFF" strokeWidth={0.5} />
       </div>
       <div
         id="titlebar-maximize"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#333333] focus:outline-none"
       >
-        <Square size={13} color="#FFFFFF" strokeWidth={2} />
+        <VscChromeMaximize size={17} color="#FFFFFF" strokeWidth={0.5} />
       </div>
       <div
         id="titlebar-close"
         className="flex justify-center items-center w-[45px] h-[40px] hover:bg-[#D92B2B] focus:outline-none"
       >
-        <X size={20} color="#FFFFFF" strokeWidth={2} />
+        <VscChromeClose size={17} color="#FFFFFF" strokeWidth={0.5} />
       </div>
     </div>
   );
