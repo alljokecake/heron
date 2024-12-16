@@ -1,0 +1,145 @@
+.tab_container {
+	height: 33px;
+    margin-top: 7px;
+	background: #2a2a2a;
+	display: flex;
+}
+
+.tab_list {
+	height: 100%;
+	padding-left: 10px;
+	overflow-x: unset !important;
+	overflow-y: unset !important;
+	max-width: unset;
+	position: relative;
+	display: flex;
+	white-space: nowrap;
+	flex-grow: 1;
+}
+
+.tab {
+	height: 100%;
+	display: inline-block;
+}
+.tab .inner {
+	height: 100%;
+	transition: all 0.1s ease;
+	border-radius: 10px 10px 0 0;
+	padding: 7px 10px 5px 10px;
+	position: relative;
+	max-width: 200px;
+	min-width: 200px;
+	display: flex;
+	padding-right: 30px;
+}
+.tab {
+	margin-left: -1px;
+}
+
+.tab:not(.active_tab) .border_right,
+.tab:not(.active_tab) .border_left {
+	opacity: 1;
+	height: 20px;
+	width: 1px;
+	background: #484a47;
+	position: absolute;
+	top: 56%;
+	transform: translate(0, -50%);
+	transition: all 0.1s ease;
+}
+
+.tab .active_tab .inner .border_right,
+.tab .active_tab .inner .border_left {
+	opacity: 0;
+}
+.tab:not(.active_tab) .border_right {
+	right: 0;
+}
+.tab:not(.active_tab) .border_left {
+	left: 0;
+}
+.tab:first-child .border_left {
+	opacity: 0;
+}
+
+.tab:not(.active_tab):hover .inner {
+	background: #333333;
+	z-index: 50;
+}
+
+.tab .border_right,
+.tab .border_left {
+	opacity: 0;
+}
+
+.tab:not(.active_tab):hover .inner::before {
+	background: -webkit-radial-gradient(
+		0 0,
+		circle,
+		rgba(0, 0, 0, 0) 10px,
+		#2a2a2a 11px
+	);
+}
+.tab:not(.active_tab):hover .inner::after {
+	background: -webkit-radial-gradient(
+		100% 0,
+		circle,
+		rgba(0, 0, 0, 0) 10px,
+		#2a2a2a 11px
+	);
+}
+
+.tab .inner::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: -10px;
+	bottom: 0;
+}
+.tab .inner::after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: -10px;
+	bottom: 0;
+}
+
+.tab.active_tab .inner {
+	background: #1e1e1e;
+	z-index: 100;
+}
+.tab.active_tab .inner::before {
+	background: -webkit-radial-gradient(
+		0 0,
+		circle,
+		rgba(0, 0, 0, 0) 10px,
+		#1e1e1e 11px
+	);
+}
+.tab.active_tab .inner::after {
+	background: -webkit-radial-gradient(
+		100% 0,
+		circle,
+		rgba(0, 0, 0, 0) 10px,
+		#1e1e1e 11px
+	);
+}
+
+.tab .text {
+	display: inline-block;
+	pointer-events: none;
+}
+
+.tab .text {
+	overflow: hidden;
+	flex-grow: 1;
+	font-size: 16px;
+	padding-top: 1px;
+    color: #616161
+}
+
+.tab.active_tab .text {
+    color: #FFFFFF
+}
