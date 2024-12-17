@@ -114,16 +114,16 @@
 	background: -webkit-radial-gradient(
 		0 0,
 		circle,
-		rgba(0, 0, 0, 0) 10px,
-		#1e1e1e 11px
+		rgba(0, 0, 0, 0) 11px,
+		#1e1e1e 12px
 	);
 }
 .tab.active_tab .inner::after {
 	background: -webkit-radial-gradient(
 		100% 0,
 		circle,
-		rgba(0, 0, 0, 0) 10px,
-		#1e1e1e 11px
+		rgba(0, 0, 0, 0) 11px,
+		#1e1e1e 12px
 	);
 }
 
