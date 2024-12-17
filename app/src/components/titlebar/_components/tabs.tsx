@@ -1,15 +1,13 @@
 import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 
 import "../titlebar.css";
 
+// TODO: Better coloring overall.
 // TODO: Don't use custom button component or any sort. Replace them with,
 // hover... in titlebar.css. We don't want the link selector cursor while
 // hovering.
-//
-// TODO: Add close_tab button. 
 //
 // TODO: Handle rust's json object. Attach tab sessions accordingly.
 //  - TODO: Custom folder icons
@@ -37,15 +35,16 @@ const Tabs = () => {
                               <img src="folder-constant.svg"/>
                             </div>
                             <div className="text">{tab}</div>
+                            <div className="close_tab">
+                              <X size={20} strokeWidth={1.0} color="#FAFFFF"/>
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
 
             <div className="add_tab">
-              <Button variant="bar" size="icon">
-                <Plus size={22} strokeWidth={0.5} color="#FFFFFF"/>
-              </Button>
+              <Plus size={20} strokeWidth={1} color="#FFFFFF"/>
             </div>
 
         </div>
