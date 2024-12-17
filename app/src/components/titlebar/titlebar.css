@@ -130,7 +130,6 @@
 .tab .icon,
 .tab .text {
 	display: inline-block;
-	pointer-events: none;
 }
 
 .tab .text {
@@ -138,7 +137,24 @@
 	flex-grow: 1;
 	font-size: 13.5px;
 	padding-top: 1px;
-    color: #616161
+    color: #616161;
+}
+
+
+.tab .icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+    padding-bottom: 3px;
+}
+
+.tab .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .tab.active_tab .text {
@@ -147,11 +163,5 @@
 }
 
 .tab.active_tab .icon {
-    color: #FFFFFF
-}
-
-.tab .icon {
-    margin-top: 4px;
-    margin-right: 7px;
-    color: #616161;
+    color: #FFFFFF;
 }

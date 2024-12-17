@@ -1,8 +1,6 @@
-import "../titlebar.css";
-
-import { Download } from "lucide-react";
-
 import { useState } from 'react';
+
+import "../titlebar.css";
 
 const Tabs = () => {
     // State to track active tab
@@ -28,7 +26,9 @@ const Tabs = () => {
                         <div className="inner">
                             <span className="border_left"></span>
                             <span className="border_right"></span>
-                            <div className="icon"><Download size={15}/></div>
+                            <div className="icon">
+                              <img src="folder_icon.svg"/>
+                            </div>
                             <div className="text">{tab}</div>
                         </div>
                     </div>
