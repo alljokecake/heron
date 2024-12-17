@@ -1,15 +1,22 @@
 import { useState } from 'react';
 
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
+
 import "../titlebar.css";
 
+// TODO: Don't use custom button component or any sort. Replace them with,
+// hover... in titlebar.css. We don't want the link selector cursor while
+// hovering.
+//
+// TODO: Add close_tab button. 
+//
+// TODO: Handle rust's json object. Attach tab sessions accordingly.
+//  - TODO: Custom folder icons
 const Tabs = () => {
-    // State to track active tab
     const [activeTab, setActiveTab] = useState(1);
-
-    // Tab data as an array
     const tabs = ["Documents", "Downloads", "Local Disk (C:)"];
 
-    // Function to handle tab click
     const handleTabClick = (index: number) => {
         setActiveTab(index);
     };
@@ -27,15 +34,20 @@ const Tabs = () => {
                             <span className="border_left"></span>
                             <span className="border_right"></span>
                             <div className="icon">
-                              <img src="folder_icon.svg"/>
+                              <img src="folder-constant.svg"/>
                             </div>
                             <div className="text">{tab}</div>
                         </div>
                     </div>
                 ))}
-
-                <div className="w-[20px]"></div>
             </div>
+
+            <div className="add_tab">
+              <Button variant="bar" size="icon">
+                <Plus size={22} strokeWidth={0.5} color="#FFFFFF"/>
+              </Button>
+            </div>
+
         </div>
     );
 };

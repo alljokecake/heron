@@ -137,7 +137,7 @@
 	flex-grow: 1;
 	font-size: 13.5px;
 	padding-top: 1px;
-    color: #616161;
+    color: #FFFFFF;
 }
 
 
@@ -147,7 +147,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3px;
+    margin-right: 7px;
     padding-bottom: 3px;
 }
 
@@ -164,4 +164,9 @@
 
 .tab.active_tab .icon {
     color: #FFFFFF;
+}
+
+.add_tab {
+    padding-top: 1px;
+    margin-left: 5px;
 }
