@@ -127,6 +127,7 @@
 	);
 }
 
+.tab .icon,
 .tab .text {
 	display: inline-block;
 	pointer-events: none;
@@ -141,5 +142,16 @@
 }
 
 .tab.active_tab .text {
+    font-weight: bold;
     color: #FFFFFF
+}
+
+.tab.active_tab .icon {
+    color: #FFFFFF
+}
+
+.tab .icon {
+    margin-top: 4px;
+    margin-right: 7px;
+    color: #616161;
 }

@@ -1,5 +1,7 @@
 import "../titlebar.css";
 
+import { Download } from "lucide-react";
+
 // const Tabs = () => {
 //   return (
 //     <div className="flex items-center space-x-0 pl-3 max-w-[1000px]">
@@ -16,40 +18,81 @@ import "../titlebar.css";
 // export default Tabs;
 
 
+// const Tabs = () => {
+//     return(
+//     <div className="tab_container">
+//         <div className="tab_list">
+// 
+//             <div className="tab">
+//                 <div className="inner">
+//                     <span className="border_left"></span>
+//                     <span className="border_right"></span>
+//                     <div className="text">Documents</div>
+//                 </div>
+//             </div>
+//             <div className="tab active_tab">
+//                 <div className="inner">
+//                     <span className="border_left"></span>
+//                     <span className="border_right"></span>
+//                     <div className="text">Downloads</div>
+//                 </div>
+//             </div>
+//             <div className="tab">
+//                 <div className="inner">
+//                     <span className="border_left"></span>
+//                     <span className="border_right"></span>
+//                     <div className="text">Local Disk (C:)</div>
+//                 </div>
+//             </div>
+// 
+//             <div className="w-[20px]">
+//             </div>
+//         
+//         </div>
+//     </div>
+//     );
+// }
+// 
+// export default Tabs;
+
+
+import { useState } from 'react';
+
 const Tabs = () => {
-    return(
-    <div className="tab_container">
-        <div className="tab_list">
+    // State to track active tab
+    const [activeTab, setActiveTab] = useState(1);
 
-            <div className="tab">
-                <div className="inner">
-                    <span className="border_left"></span>
-                    <span className="border_right"></span>
-                    <div className="text">Documents</div>
-                </div>
-            </div>
-            <div className="tab active_tab">
-                <div className="inner">
-                    <span className="border_left"></span>
-                    <span className="border_right"></span>
-                    <div className="text">Downloads</div>
-                </div>
-            </div>
-            <div className="tab">
-                <div className="inner">
-                    <span className="border_left"></span>
-                    <span className="border_right"></span>
-                    <div className="text">Local Disk (C:)</div>
-                </div>
-            </div>
+    // Tab data as an array
+    const tabs = ["Documents", "Downloads", "Local Disk (C:)"];
 
-            <div className="w-[20px]">
+    // Function to handle tab click
+    const handleTabClick = (index: number) => {
+        setActiveTab(index);
+    };
+
+    return (
+        <div className="tab_container">
+            <div className="tab_list">
+                {tabs.map((tab, index) => (
+                    <div
+                        key={index}
+                        className={`tab ${activeTab === index ? 'active_tab' : ''}`}
+                        onClick={() => handleTabClick(index)}
+                    >
+                        <div className="inner">
+                            <span className="border_left"></span>
+                            <span className="border_right"></span>
+                            <div className="icon"><Download size={15}/></div>
+                            <div className="text">{tab}</div>
+                        </div>
+                    </div>
+                ))}
+
+                <div className="w-[20px]"></div>
             </div>
-        
         </div>
-    </div>
     );
-}
+};
 
 export default Tabs;
 
