@@ -8,6 +8,7 @@ import "../titlebar.css";
 // TODO: Don't use custom button component or any sort. Replace them with,
 // hover... in titlebar.css. We don't want the link selector cursor while
 // hovering.
+// TODO: Spawn info-box, when hovered over on tabs.
 //
 // TODO: Handle rust's json object. Attach tab sessions accordingly.
 //  - TODO: Custom folder icons
@@ -35,6 +36,7 @@ const Tabs = () => {
                               <img src="folder-constant.svg"/>
                             </div>
                             <div className="text">{tab}</div>
+                            <div className="w-4"></div>
                             <div className="close_tab">
                               <X size={20} strokeWidth={1.0} color="#FAFFFF"/>
                             </div>
@@ -44,7 +46,7 @@ const Tabs = () => {
             </div>
 
             <div className="add_tab">
-              <Plus size={22} strokeWidth={1.0} color="#FAFFFF"/>
+              <Plus size={23} strokeWidth={1.0} color="#FAFFFF"/>
             </div>
 
         </div>
