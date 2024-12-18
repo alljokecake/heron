@@ -5,6 +5,7 @@ import { Plus, X } from 'lucide-react';
 import "../titlebar.css";
 
 // TODO: Better coloring overall.
+// TODO: Display X when hovered on the tab.
 // TODO: Don't use custom button component or any sort. Replace them with,
 // hover... in titlebar.css. We don't want the link selector cursor while
 // hovering.
@@ -44,7 +45,7 @@ const Tabs = () => {
             </div>
 
             <div className="add_tab">
-              <Plus size={20} strokeWidth={1} color="#FFFFFF"/>
+              <Plus size={24} strokeWidth={0.5} color="#FFFFFF"/>
             </div>
 
         </div>
