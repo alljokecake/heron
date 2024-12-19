@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, ChevronDown} from 'lucide-react';
 import "../titlebar.css";
 
+// TODO: Proper naming convention to the clown section.
 // TODO: Limit the tab container.
 // TODO: Reactive tab container.
 // TODO: Dragable tabs, react-dnd?
@@ -93,8 +94,14 @@ const Tabs = () => {
                     </div>
                 ))}
             </div>
-            <div className="add_tab" onClick={handleAddTab}>
-                <Plus size={20} strokeWidth={1.0} color="#FAFFFF" />
+            <div className="clown">
+                <div className="add_tab" onClick={handleAddTab}>
+                    <Plus size={22} strokeWidth={1.0} color="#FAFFFF" />
+                </div>
+                <span className="lanky"></span>
+                <div className="chevy_down">
+                    <ChevronDown size={20} strokeWidth={1.0} color="#FAFFFF" />
+                </div>
             </div>
         </div>
     );
