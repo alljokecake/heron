@@ -209,3 +209,33 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.tab.closing_tab {
+    animation: closeTab 0.1s ease forwards;
+}
+
+@keyframes closeTab {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.tab.adding_tab {
+    animation: addTab 0.2s ease forwards;
+}
+
+@keyframes addTab {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

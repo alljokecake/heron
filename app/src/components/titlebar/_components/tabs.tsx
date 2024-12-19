@@ -1,11 +1,10 @@
-
 import { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import "../titlebar.css";
 
-// TODO: add_tab, close_tab animations.
-// TODO: Dragable tabs, react-dnd?
+// TODO: Limit the tab container.
 // TODO: Reactive tab container.
+// TODO: Dragable tabs, react-dnd?
 // TODO: Spawn info-box, when hovered over on tabs.
 //
 // TODO: Handle rust's json object. Attach tab sessions accordingly.
@@ -15,7 +14,7 @@ import "../titlebar.css";
 const DEFAULT_TAB_NAME = "Documents";
 
 const Tabs = () => {
-    const [tabs, setTabs] = useState(["Local Disk (C:)"]);
+    const [tabs, setTabs] = useState([{ name: "Local Disk (C:)", isClosing: false, isAdding: false }]);
     const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (index: number) => {
@@ -23,20 +22,41 @@ const Tabs = () => {
     };
 
     const handleAddTab = () => {
-        setTabs([...tabs, DEFAULT_TAB_NAME]);
+        const newTab = { name: DEFAULT_TAB_NAME, isClosing: false, isAdding: true };
+        setTabs((prevTabs) => [...prevTabs, newTab]);
         setActiveTab(tabs.length); // Make the new tab active
+
+        // Remove `isAdding` class after the animation duration
+        setTimeout(() => {
+            setTabs((prevTabs) =>
+                prevTabs.map((tab, i) =>
+                    i === prevTabs.length - 1 ? { ...tab, isAdding: false } : tab
+                )
+            );
+        }, 200); // Match the animation duration
     };
 
     const handleCloseTab = (index: number) => {
-        const newTabs = tabs.filter((_, i) => i !== index);
-        setTabs(newTabs);
+        setTabs((prevTabs) =>
+                prevTabs.map((tab, i) => (i === index ? { ...tab, isClosing: true } : tab))
+               );
 
-        // Adjust activeTab index if needed
-        if (activeTab >= newTabs.length) {
-            setActiveTab(newTabs.length - 1);
-        } else if (index === activeTab) {
-            setActiveTab(activeTab - 1 >= 0 ? activeTab - 1 : 0);
-        }
+        setTimeout(() => {
+                setTabs((prevTabs) => {
+                        const newTabs = prevTabs.filter((_, i) => i !== index);
+
+                        setActiveTab((prevActiveTab) => {
+                                if (index === prevActiveTab) {
+                                return Math.min(index, newTabs.length - 1);
+                                } else if (index < prevActiveTab) {
+                                return prevActiveTab - 1;
+                                }
+                                return prevActiveTab;
+                                });
+
+                        return newTabs;
+                        });
+                }, 100); // Match the animation duration
     };
 
     return (
@@ -45,7 +65,11 @@ const Tabs = () => {
                 {tabs.map((tab, index) => (
                     <div
                         key={index}
-                        className={`tab ${activeTab === index ? 'active_tab' : ''}`}
+                        className={`tab ${
+                            activeTab === index ? "active_tab" : ""
+                        } ${tab.isClosing ? "closing_tab" : ""} ${
+                            tab.isAdding ? "adding_tab" : ""
+                        }`}
                         onClick={() => handleTabClick(index)}
                     >
                         <div className="inner">
@@ -54,7 +78,7 @@ const Tabs = () => {
                             <div className="icon">
                                 <img src="folder-constant.svg" alt="Tab Icon" />
                             </div>
-                            <div className="text">{tab}</div>
+                            <div className="text">{tab.name}</div>
                             <div className="w-4"></div>
                             <div
                                 className="close_tab"

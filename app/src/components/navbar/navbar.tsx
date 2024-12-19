@@ -26,7 +26,6 @@ export const NavBar = () => {
         <div className="h-[30px] bg-[#252525] w-full max-w-full rounded-md"></div>
         <div className="h-[30px] bg-[#252525] w-[350px] max-w-full rounded-md
         text-[#616161] pt-1 pl-2">
-          Search
         </div>
       </div>
 
