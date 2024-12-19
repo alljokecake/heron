@@ -75,7 +75,7 @@ const Tabs = () => {
                             <span className="border_left"></span>
                             <span className="border_right"></span>
                             <div className="icon">
-                                <img src="folder-constant.svg" alt="Tab Icon" />
+                                <img src="folder-constant.svg" alt="Tab Icon"/>
                             </div>
                             <div className="text">{tab.name}</div>
                             <div className="w-4"></div>

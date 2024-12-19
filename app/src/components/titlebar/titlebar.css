@@ -1,3 +1,11 @@
+/* Disable user selection */
+.tab .text, .tab .icon img {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
 /* General container for tabs */
 .tab_container {
 	height: 33px;
