@@ -6,10 +6,6 @@ import "../titlebar.css";
 // TODO: Limit the tab container.
 // TODO: Reactive tab container.
 // TODO: Dragable tabs, react-dnd?
-// TODO: Spawn info-box, when hovered over on tabs.
-//
-// TODO: Handle rust's json object. Attach tab sessions accordingly.
-//  - TODO: Custom folder icons
 
 // FIXME: Tab behaviour on close is weird.
 

@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight, Dot, Settings } from "lucide-react";
 
 import "./navbar.css";
 
-// TODO: Remove shadcn button component.
 // TODO: Set option for unavailable chevrons.
 export const NavBar = () => {
   return (
