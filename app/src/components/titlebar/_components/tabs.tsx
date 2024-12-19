@@ -3,11 +3,17 @@ import { Plus, X, ChevronDown} from 'lucide-react';
 import "../titlebar.css";
 
 // TODO: Chevy down box.
-// TODO: Limit the tab container.
-// TODO: Reactive tab container.
-// TODO: Dragable tabs, react-dnd?
 
-// FIXME: Tab behaviour on close is weird.
+// TODO: TAB BEHAVIOUR:
+// * Tabs and windowControls shouldn't collapse (min 50px gap between
+//   components).
+// * After hitting the gap limit, tabs should resize itself.
+// * Tabs should be draggable inside the tab_container (react-dnd).
+
+// @FIXME: Tab behaviour on close is weird. When closing a tab, if the tab isn't
+// active, it should NOT make the tab next to it active. This is going to go
+// away when we implement the rust part, because we are not gonna use standart
+// vectors.
 
 const DEFAULT_TAB_NAME = "Documents";
 
