@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Plus, X, ChevronDown} from 'lucide-react';
 import "../titlebar.css";
 
-// TODO: Proper naming convention to the clown section.
+// TODO: Chevy down box.
 // TODO: Limit the tab container.
 // TODO: Reactive tab container.
 // TODO: Dragable tabs, react-dnd?
@@ -10,11 +10,13 @@ import "../titlebar.css";
 //
 // TODO: Handle rust's json object. Attach tab sessions accordingly.
 //  - TODO: Custom folder icons
-// TODO: Better coloring overall.
+
+// FIXME: Tab behaviour on close is weird.
 
 const DEFAULT_TAB_NAME = "Documents";
 
 const Tabs = () => {
+    // Tab stuff are hardcoded for now. We have to derive it from the rust part.
     const [tabs, setTabs] = useState([{ name: "Local Disk (C:)", isClosing: false, isAdding: false }]);
     const [activeTab, setActiveTab] = useState(0);
 
@@ -94,11 +96,11 @@ const Tabs = () => {
                     </div>
                 ))}
             </div>
-            <div className="clown">
+            <div className="action_cluster">
                 <div className="add_tab" onClick={handleAddTab}>
                     <Plus size={22} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
-                <span className="lanky"></span>
+                <span className="action_divider"></span>
                 <div className="chevy_down">
                     <ChevronDown size={20} strokeWidth={1.0} color="#FAFFFF" />
                 </div>

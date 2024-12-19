@@ -1,10 +1,12 @@
+/* General container for tabs */
 .tab_container {
 	height: 33px;
-    margin-top: 7px;
+	margin-top: 7px;
 	background: #2a2a2a;
 	display: flex;
 }
 
+/* Tab list styling */
 .tab_list {
 	height: 100%;
 	padding-left: 10px;
@@ -17,9 +19,11 @@
 	flex-grow: 1;
 }
 
+/* Individual tab styles */
 .tab {
 	height: 100%;
 	display: inline-block;
+	margin-left: -1px;
 }
 .tab .inner {
 	height: 100%;
@@ -32,10 +36,8 @@
 	display: flex;
 	padding-right: 30px;
 }
-.tab {
-	margin-left: -1px;
-}
 
+/* Inactive tab borders */
 .tab:not(.active_tab) .border_right,
 .tab:not(.active_tab) .border_left {
 	opacity: 1;
@@ -48,10 +50,13 @@
 	transition: all 0.1s ease;
 }
 
+/* Hide borders for active tabs */
 .tab .active_tab .inner .border_right,
 .tab .active_tab .inner .border_left {
 	opacity: 0;
 }
+
+/* Specific border positioning */
 .tab:not(.active_tab) .border_right {
 	right: 0;
 }
@@ -59,25 +64,22 @@
 	left: 0;
 }
 .tab:first-child .border_left {
-	opacity: 0;
+	opacity: 0; /* Hide left border for the first tab */
 }
 
+/* Hover effect for inactive tabs */
 .tab:not(.active_tab):hover .inner {
 	background: #353535;
 	z-index: 50;
 }
 
-.tab .border_right,
-.tab .border_left {
-	opacity: 0;
-}
-
+/* Radial gradient effects for hover */
 .tab:not(.active_tab):hover .inner::before {
 	background: -webkit-radial-gradient(
 		0 0,
 		circle,
 		rgba(0, 0, 0, 0) 10px,
-		#2a2a2a 11px
+		#2a2a2a 11px /* TODO: Make it invisible, opacity: 0; */
 	);
 }
 .tab:not(.active_tab):hover .inner::after {
@@ -85,27 +87,27 @@
 		100% 0,
 		circle,
 		rgba(0, 0, 0, 0) 10px,
-		#2a2a2a 11px
+		#2a2a2a 11px /* TODO: Make it invisible, opacity: 0; */
 	);
 }
 
-.tab .inner::before {
-	content: "";
-	width: 10px;
-	height: 10px;
-	position: absolute;
-	left: -10px;
-	bottom: 0;
-}
+/* Inner tab decoration elements */
+.tab .inner::before,
 .tab .inner::after {
 	content: "";
 	width: 10px;
 	height: 10px;
 	position: absolute;
-	right: -10px;
 	bottom: 0;
 }
+.tab .inner::before {
+	left: -10px;
+}
+.tab .inner::after {
+	right: -10px;
+}
 
+/* Active tab styling */
 .tab.active_tab .inner {
 	background: #1e1e1e;
 	z-index: 100;
@@ -114,54 +116,53 @@
 	background: -webkit-radial-gradient(
 		0 0,
 		circle,
-		rgba(0, 0, 0, 0) 11px,
-		#1e1e1e 12px
+		rgba(0, 0, 0, 0) 11px, /* 10px more roundy connection*/
+		#1e1e1e 12px /* 11px */
 	);
 }
 .tab.active_tab .inner::after {
 	background: -webkit-radial-gradient(
 		100% 0,
 		circle,
-		rgba(0, 0, 0, 0) 11px,
-		#1e1e1e 12px
+		rgba(0, 0, 0, 0) 11px, /* 10px more roundy connection*/
+		#1e1e1e 12px /* 11px */
 	);
 }
 
+/* Text and icon inside tabs */
 .tab .icon,
 .tab .text {
 	display: inline-block;
 }
-
 .tab .text {
 	overflow: hidden;
 	flex-grow: 1;
 	font-size: 13.5px;
 	padding-top: 1px;
-    color: #FFFFFF;
+	color: #ffffff;
 }
-
-
 .tab .icon {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 7px;
-    padding-bottom: 3px;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 7px;
+	padding-bottom: 3px;
 }
-
 .tab .icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
+/* Active tab text styles */
 .tab.active_tab .text {
-    font-weight: bold;
-    color: #FFFFFF
+	font-weight: bold;
+	color: #ffffff;
 }
 
+/* Close tab button */
 .close_tab {
 	width: 30px;
 	height: 22px;
@@ -171,104 +172,77 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    opacity: 0;
+	opacity: 0;
 }
-
-.tab.active_tab .close_tab {
-    opacity: 100;
+.tab.active_tab .close_tab,
+.tab:hover .close_tab {
+	opacity: 100;
 }
-
-
 .close_tab:hover {
 	background: #444444;
-    border-radius: 5px;
-    opacity: 100;
+	border-radius: 5px;
 }
 
-
-.tab:hover .close_tab,
-.close_tab:hover {
-    opacity: 100;
+/* Tab Action Cluster */
+.action_cluster {
+	display: flex;
+	position: relative;
+	gap: 0px;
 }
-
-.close_tab::after {
-	position: absolute;
-	top: -5px;
-	left: 3px;
-    content: "";
-}
-
-.clown {
-    display: flex;
-    position: relative;
-    gap: 0px;
-}
-
-.clown .add_tab {
-    width: 30px;
-    height: 22px;
-    margin-top: 7px;
-    margin-left: 10px;
+.action_cluster .add_tab,
+.action_cluster .chevy_down {
+	width: 30px;
+	height: 22px;
+	margin-top: 7px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-
-.clown .chevy_down {
-    width: 30px;
-    height: 22px;
-    margin-top: 7px;
-    margin-left: 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.action_cluster .add_tab {
+	margin-left: 10px;
 }
-
-.clown .add_tab:hover {
+.action_cluster .add_tab:hover {
 	background: #444444;
-    border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
 }
-
-
-.clown .chevy_down:hover {
+.action_cluster .chevy_down:hover {
 	background: #444444;
-    border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
 }
 
-.clown .lanky {
+/* Action Cluster divider */
+.action_cluster .action_divider {
 	height: 23px;
 	width: 0.5px;
 	background: #484a47;
-    top: 20%;
-    position: relative;
+	top: 20%;
+	position: relative;
 }
 
+/* Tab animations */
 .tab.closing_tab {
-    animation: closeTab 0.1s ease forwards;
+	animation: closeTab 0.1s ease forwards;
 }
-
 @keyframes closeTab {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0.8);
+	}
 }
-
 .tab.adding_tab {
-    animation: addTab 0.2s ease forwards;
+	animation: addTab 0.2s ease forwards;
 }
-
 @keyframes addTab {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+	0% {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
