@@ -7,13 +7,11 @@ function App() {
     return(
         <div className="fixed">
           <div className="fixed h-full w-full bg-[#2a2a2a]">
-            <div className="sticky">
-              <TitleBar />
+            <TitleBar />
               <div className="flex-grow pt-10">
-                <NavBar />
-              </div>
+              <NavBar />
             </div>
-            <div className="fixed h-full w-full bg-[#1e1e1e]">
+            <div className="h-full w-full bg-[#1e1e1e]">
               <Panel />
             </div>
           </div>

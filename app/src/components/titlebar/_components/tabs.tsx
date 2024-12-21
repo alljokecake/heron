@@ -16,11 +16,10 @@ import "../titlebar.css";
 // vectors.
 
 const DEFAULT_TAB_NAME = "Documents";
-
 const Tabs = () => {
-    // Tab stuff are hardcoded for now. We have to derive it from the rust part.
     const [tabs, setTabs] = useState([{ name: "Local Disk (C:)", isClosing: false, isAdding: false }]);
     const [activeTab, setActiveTab] = useState(0);
+    const [showSquare, setShowSquare] = useState(false); // State for the rounded square
 
     const handleTabClick = (index: number) => {
         setActiveTab(index);
@@ -31,37 +30,40 @@ const Tabs = () => {
         setTabs((prevTabs) => [...prevTabs, newTab]);
         setActiveTab(tabs.length); // Make the new tab active
 
-        // Remove `isAdding` class after the animation duration
         setTimeout(() => {
             setTabs((prevTabs) =>
                 prevTabs.map((tab, i) =>
                     i === prevTabs.length - 1 ? { ...tab, isAdding: false } : tab
                 )
             );
-        }, 200); // Match the animation duration
+        }, 200);
     };
 
     const handleCloseTab = (index: number) => {
         setTabs((prevTabs) =>
-                prevTabs.map((tab, i) => (i === index ? { ...tab, isClosing: true } : tab))
-               );
+            prevTabs.map((tab, i) => (i === index ? { ...tab, isClosing: true } : tab))
+        );
 
         setTimeout(() => {
-                setTabs((prevTabs) => {
-                        const newTabs = prevTabs.filter((_, i) => i !== index);
+            setTabs((prevTabs) => {
+                const newTabs = prevTabs.filter((_, i) => i !== index);
 
-                        setActiveTab((prevActiveTab) => {
-                                if (index === prevActiveTab) {
-                                return Math.min(index, newTabs.length - 1);
-                                } else if (index < prevActiveTab) {
-                                return prevActiveTab - 1;
-                                }
-                                return prevActiveTab;
-                                });
+                setActiveTab((prevActiveTab) => {
+                    if (index === prevActiveTab) {
+                        return Math.min(index, newTabs.length - 1);
+                    } else if (index < prevActiveTab) {
+                        return prevActiveTab - 1;
+                    }
+                    return prevActiveTab;
+                });
 
-                        return newTabs;
-                        });
-                }, 100); // Match the animation duration
+                return newTabs;
+            });
+        }, 100);
+    };
+
+    const handleChevyDownClick = () => {
+        setShowSquare((prev) => !prev); // Toggle square visibility
     };
 
     return (
@@ -81,14 +83,14 @@ const Tabs = () => {
                             <span className="border_left"></span>
                             <span className="border_right"></span>
                             <div className="icon">
-                                <img src="folder-constant.svg" alt="Tab Icon"/>
+                                <img src="folder-constant.svg" alt="Tab Icon" />
                             </div>
                             <div className="text">{tab.name}</div>
                             <div className="w-4"></div>
                             <div
                                 className="close_tab"
                                 onClick={(e) => {
-                                    e.stopPropagation(); // Prevent triggering tab click
+                                    e.stopPropagation();
                                     handleCloseTab(index);
                                 }}
                             >
@@ -103,9 +105,10 @@ const Tabs = () => {
                     <Plus size={22} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
                 <span className="action_divider"></span>
-                <div className="chevy_down">
+                <div className="chevy_down" onClick={handleChevyDownClick}>
                     <ChevronDown size={20} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
+                {showSquare && <div className="rounded_square"></div>} {/* Rounded square */}
             </div>
         </div>
     );
