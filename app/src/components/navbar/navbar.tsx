@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Dot, Settings } from "lucide-react";
+import { ChevronLeft, ChevronRight, Dot } from "lucide-react";
 
 import "./navbar.css";
 
@@ -21,18 +21,13 @@ export const NavBar = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center space-x-3 px-4 flex-grow">
+      <div className="flex items-center justify-center space-x-3 px-2 flex-grow">
         <div className="h-[30px] bg-[#252525] w-full max-w-full rounded-md"></div>
         <div className="h-[30px] bg-[#252525] w-[350px] max-w-full rounded-md
         text-[#616161] pt-1 pl-2">
         </div>
       </div>
 
-      <div className="flex items-center space-x-4">
-        <div className="nav_button">
-          <Settings size={20} color="#F5FFFa" strokeWidth={1} />
-        </div>
-      </div>
     </div>
   );
 };

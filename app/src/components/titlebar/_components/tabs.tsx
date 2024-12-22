@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Plus, X, ChevronDown} from 'lucide-react';
+import { Plus, X, ChevronDown, Settings} from 'lucide-react';
 import "../titlebar.css";
-
-// TODO: Chevy down box.
 
 // TODO: TAB BEHAVIOUR:
 // * Tabs and windowControls shouldn't collapse (min 50px gap between
@@ -19,7 +17,8 @@ const DEFAULT_TAB_NAME = "Documents";
 const Tabs = () => {
     const [tabs, setTabs] = useState([{ name: "Local Disk (C:)", isClosing: false, isAdding: false }]);
     const [activeTab, setActiveTab] = useState(0);
-    const [showSquare, setShowSquare] = useState(false); // State for the rounded square
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleTabClick = (index: number) => {
         setActiveTab(index);
@@ -62,10 +61,6 @@ const Tabs = () => {
         }, 100);
     };
 
-    const handleChevyDownClick = () => {
-        setShowSquare((prev) => !prev); // Toggle square visibility
-    };
-
     return (
         <div className="tab_container">
             <div className="tab_list">
@@ -105,10 +100,21 @@ const Tabs = () => {
                     <Plus size={22} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
                 <span className="action_divider"></span>
-                <div className="chevy_down" onClick={handleChevyDownClick}>
+                <div className="add_tab_menu" onClick={() => setIsOpen(!isOpen)}>
                     <ChevronDown size={20} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
-                {showSquare && <div className="rounded_square"></div>} {/* Rounded square */}
+                {isOpen && (
+                    <div className="menu">
+                      <div className="menu-item"></div>
+                      <div className="menu-item"></div>
+                      <div className="menu-item"></div>
+                      <div className="menu-item-divider"></div>
+                      <div className="menu-item">
+                        <div className="icon"><Settings size={20} strokeWidth={1.5} color="#FAFFFF" /></div>
+                        <div className="text">Settings</div>
+                      </div>
+                    </div>
+                )}
             </div>
         </div>
     );

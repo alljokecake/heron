@@ -1,5 +1,10 @@
+/* 
+TODO: Fix naming convention:
+- Don't use underscore, switch to hyphen instead.
+*/
+
 /* Disable user selection */
-.tab .text, .tab .icon img {
+.tab .text, .tab .icon img, .menu .text, .menu .icon img{
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -198,7 +203,7 @@
 	gap: 0px;
 }
 .action_cluster .add_tab,
-.action_cluster .chevy_down {
+.action_cluster .add_tab_menu {
 	width: 30px;
 	height: 22px;
 	margin-top: 7px;
@@ -213,7 +218,7 @@
 	background: #444444;
 	border-radius: 5px 0 0 5px;
 }
-.action_cluster .chevy_down:hover {
+.action_cluster .add_tab_menu:hover {
 	background: #444444;
 	border-radius: 0 5px 5px 0;
 }
@@ -255,16 +260,75 @@
 	}
 }
 
-/* TODO */
-.rounded_square {
+/* TODO: Hover the action_cluster, while the menu is open. */
+/* TODO: Better animation. */
+
+.menu {
     position: absolute;
     margin-top: 35px;
     margin-left: 10px;
     width: 250px;
-    height: 300px;
-    background-color: #cccccc;
-    border-radius: 10px;
+    background-color: #2a2a2a;
+    border-radius: 10px; /* TODO: Doesn't feel right */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    animation: dropdownAnimation 0.1s ease-out;
 }
 
+/* DELETE ME */
+@keyframes dropdownAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu .menu-item {
+    height: 30px;
+    width: 240px;
+    margin: 5px; /* TODO: Doesn't feel right. */
+	border-radius: 5px; /* TODO: Doesn't feel right. */
+    display: flex;
+    gap: 3px;
+}
+
+.menu .menu-item:hover {
+	background: #444444;
+}
+
+.menu .icon,
+.menu .text {
+    display: inline-block;
+}
+
+.menu .text {
+    margin-top: 4px;
+	font-size: 13.5px;
+	color: #faffff;
+	display: flex;
+}
+
+.menu .icon {
+    margin-top: 2px;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu .icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.menu .menu-item-divider {
+	height: 0.5px;
+	width: 100%;
+	background: #484a47;
+}
