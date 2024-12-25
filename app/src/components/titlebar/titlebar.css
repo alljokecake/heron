@@ -204,7 +204,7 @@ TODO: Fix naming convention:
 }
 .action_cluster .add_tab,
 .action_cluster .add_tab_menu {
-	width: 33px;
+	width: 31px;
 	height: 22px;
 	margin-top: 6px;
 	display: flex;
