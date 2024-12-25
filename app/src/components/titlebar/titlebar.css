@@ -58,7 +58,7 @@ TODO: Fix naming convention:
 	width: 1px;
 	background: #484a47;
 	position: absolute;
-	top: 56%;
+	top: 55%;
 	transform: translate(0, -50%);
 	transition: all 0.1s ease;
 }
@@ -129,16 +129,16 @@ TODO: Fix naming convention:
 	background: -webkit-radial-gradient(
 		0 0,
 		circle,
-		rgba(0, 0, 0, 0) 11px, /* 10px more roundy connection*/
-		#1e1e1e 12px /* 11px */
+		rgba(0, 0, 0, 0) 10px, /* 10px more roundy connection*/
+		#1e1e1e 11px /* 11px */
 	);
 }
 .tab.active_tab .inner::after {
 	background: -webkit-radial-gradient(
 		100% 0,
 		circle,
-		rgba(0, 0, 0, 0) 11px, /* 10px more roundy connection*/
-		#1e1e1e 12px /* 11px */
+		rgba(0, 0, 0, 0) 10px, /* 10px more roundy connection*/
+		#1e1e1e 11px /* 11px */
 	);
 }
 
@@ -151,7 +151,7 @@ TODO: Fix naming convention:
 	overflow: hidden;
 	flex-grow: 1;
 	font-size: 13.5px;
-	padding-top: 1px;
+	padding-top: 0px;
 	color: #ffffff;
 }
 .tab .icon {
@@ -161,7 +161,7 @@ TODO: Fix naming convention:
 	justify-content: center;
 	align-items: center;
 	margin-right: 7px;
-	padding-bottom: 3px;
+	padding-bottom: 5px;
 }
 .tab .icon img {
 	width: 100%;
@@ -177,11 +177,11 @@ TODO: Fix naming convention:
 
 /* Close tab button */
 .close_tab {
-	width: 30px;
-	height: 22px;
+	width: 33px;
+	height: 25px;
 	position: absolute;
-	top: 8px;
-	right: 10px;
+	top: 5px;
+	right: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -204,9 +204,9 @@ TODO: Fix naming convention:
 }
 .action_cluster .add_tab,
 .action_cluster .add_tab_menu {
-	width: 30px;
+	width: 33px;
 	height: 22px;
-	margin-top: 7px;
+	margin-top: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -225,10 +225,10 @@ TODO: Fix naming convention:
 
 /* Action Cluster divider */
 .action_cluster .action_divider {
-	height: 23px;
+	height: 22px;
 	width: 0.5px;
 	background: #484a47;
-	top: 20%;
+    margin-top: 6px;
 	position: relative;
 }
 
@@ -307,7 +307,7 @@ TODO: Fix naming convention:
 
 .menu .text {
     margin-top: 4px;
-	font-size: 13.5px;
+	font-size: 12.5px;
 	color: #faffff;
 	display: flex;
 }

@@ -78,7 +78,7 @@ const Tabs = () => {
                             <span className="border_left"></span>
                             <span className="border_right"></span>
                             <div className="icon">
-                                <img src="folder-constant.svg" alt="Tab Icon" />
+                                <img src="folder_icon.svg" alt="Tab Icon" />
                             </div>
                             <div className="text">{tab.name}</div>
                             <div className="w-4"></div>
@@ -89,7 +89,7 @@ const Tabs = () => {
                                     handleCloseTab(index);
                                 }}
                             >
-                                <X size={20} strokeWidth={1.0} color="#FAFFFF" />
+                                <X size={18} strokeWidth={1.5} color="#FAFFFF" />
                             </div>
                         </div>
                     </div>
@@ -97,11 +97,11 @@ const Tabs = () => {
             </div>
             <div className="action_cluster">
                 <div className="add_tab" onClick={handleAddTab}>
-                    <Plus size={22} strokeWidth={1.0} color="#FAFFFF" />
+                    <Plus size={20} strokeWidth={1.0} color="#FAFFFF" />
                 </div>
                 <span className="action_divider"></span>
                 <div className="add_tab_menu" onClick={() => setIsOpen(!isOpen)}>
-                    <ChevronDown size={20} strokeWidth={1.0} color="#FAFFFF" />
+                    <ChevronDown size={15} strokeWidth={1.5} color="#FAFFFF" />
                 </div>
                 {isOpen && (
                     <div className="menu">
