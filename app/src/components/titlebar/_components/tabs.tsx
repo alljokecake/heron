@@ -113,7 +113,7 @@ const Tabs = () => {
                       </div>
                       <div className="menu-item">
                         <div className="icon"><Download size={20} strokeWidth={1.5} color="#32a866" /></div>
-                        <div className="text font-semibold">Downloads</div>
+                        <div className="text font-bold">Downloads</div>
                       </div>
                       <div className="menu-item">
                         <div className="icon">
