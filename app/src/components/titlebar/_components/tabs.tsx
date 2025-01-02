@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, X, ChevronDown, Settings} from 'lucide-react';
+import { Plus, X, ChevronDown, Settings, FolderClosed, HardDrive, Download, FileText } from 'lucide-react';
 import "../titlebar.css";
 
 // TODO: TAB BEHAVIOUR:
@@ -78,7 +78,7 @@ const Tabs = () => {
                             <span className="border_left"></span>
                             <span className="border_right"></span>
                             <div className="icon">
-                                <img src="folder_icon.svg" alt="Tab Icon" />
+                              <img src="folder.svg" alt="Tab Icon" />
                             </div>
                             <div className="text">{tab.name}</div>
                             <div className="w-4"></div>
@@ -105,9 +105,22 @@ const Tabs = () => {
                 </div>
                 {isOpen && (
                     <div className="menu">
-                      <div className="menu-item"></div>
-                      <div className="menu-item"></div>
-                      <div className="menu-item"></div>
+                      <div className="menu-item">
+                        <div className="icon">
+                          <img src="drive.svg" alt="Tab Icon" />
+                        </div>
+                        <div className="text">Local Disk (C:)</div>
+                      </div>
+                      <div className="menu-item">
+                        <div className="icon"><Download size={20} strokeWidth={1.5} color="#32a866" /></div>
+                        <div className="text font-semibold">Downloads</div>
+                      </div>
+                      <div className="menu-item">
+                        <div className="icon">
+                          <img src="documents.svg" alt="Tab Icon" />
+                        </div>
+                        <div className="text">Documents</div>
+                      </div>
                       <div className="menu-item-divider"></div>
                       <div className="menu-item">
                         <div className="icon"><Settings size={20} strokeWidth={1.5} color="#FAFFFF" /></div>

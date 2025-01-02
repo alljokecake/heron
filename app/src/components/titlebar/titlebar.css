@@ -155,13 +155,13 @@ TODO: Fix naming convention:
 	color: #ffffff;
 }
 .tab .icon {
-	width: 25px;
-	height: 25px;
+	width: 32px;
+	height: 32px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-right: 1px;
-	padding-bottom: 6px;
+	padding-bottom: 10px;
 }
 .tab .icon img {
 	width: 100%;
@@ -171,7 +171,7 @@ TODO: Fix naming convention:
 
 /* Active tab text styles */
 .tab.active_tab .text {
-	font-weight: bold;
+	font-weight: 700;
 	color: #ffffff;
 }
 
@@ -293,7 +293,7 @@ TODO: Fix naming convention:
     margin: 5px; /* TODO: Doesn't feel right. */
 	border-radius: 5px; /* TODO: Doesn't feel right. */
     display: flex;
-    gap: 3px;
+    gap: 5px;
 }
 
 .menu .menu-item:hover {
@@ -307,15 +307,16 @@ TODO: Fix naming convention:
 
 .menu .text {
     margin-top: 4px;
-	font-size: 12.5px;
+	font-size: 13.5px;
 	color: #faffff;
 	display: flex;
 }
 
 .menu .icon {
     margin-top: 2px;
-	width: 25px;
-	height: 25px;
+    margin-left: 3px;
+	width: 23px;
+	height: 23px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
