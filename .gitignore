@@ -357,3 +357,8 @@ vite.config.ts.*
 
 /test-data
 /config.json
+
+
+# Added by cargo
+
+/target

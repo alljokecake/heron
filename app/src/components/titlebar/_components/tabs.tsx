@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, X, ChevronDown, Settings, FolderClosed, HardDrive, Download, FileText } from 'lucide-react';
+import { Plus, X, ChevronDown, Settings, Download } from 'lucide-react';
 import "../titlebar.css";
 
 // TODO: TAB BEHAVIOUR:
