@@ -121,6 +121,12 @@ const Tabs = () => {
                         </div>
                         <div className="text">Documents</div>
                       </div>
+                      <div className="menu-item">
+                        <div className="icon">
+                          <img src="folder.svg" alt="Tab Icon" />
+                        </div>
+                        <div className="text">heron</div>
+                      </div>
                       <div className="menu-item-divider"></div>
                       <div className="menu-item">
                         <div className="icon"><Settings size={20} strokeWidth={1.5} color="#FAFFFF" /></div>
