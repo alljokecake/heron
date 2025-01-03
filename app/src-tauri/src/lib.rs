@@ -24,6 +24,7 @@ impl App {
         };
 
         app.add_tab(Tab::default());
+        app.add_tab(Tab::desktop());
 
         return app;
     }

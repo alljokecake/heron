@@ -13,7 +13,6 @@ pub struct Tab {
 
 // Known Folders
 impl Tab {
-    fn desktop() { todo!() }
 
     fn documents() -> Self {
         Self {
@@ -21,6 +20,26 @@ impl Tab {
             icon: "documents.svg".to_string(),
             path: dirs::document_dir(),
             label: "Documents".to_string(),
+            custom: false,
+        }
+    }
+
+    pub fn downloads() -> Self {
+        Self {
+            uuid: 2,
+            icon: "downloads.svg".to_string(),
+            path: dirs::download_dir(),
+            label: "downloads".to_string(),
+            custom: false,
+        }
+    }
+
+    pub fn desktop() -> Self {
+        Self {
+            uuid: 3,
+            icon: "desktop.svg".to_string(),
+            path: dirs::desktop_dir(),
+            label: "Desktop".to_string(),
             custom: false,
         }
     }
