@@ -27,14 +27,17 @@ impl App {
         return app;
     }
 
-    fn add_tab(&mut self, tab: Tab) {
+    fn add_tab(&mut self, tab: Tab) -> u128 {
         //
         // FIXME: Introduce lifetimes!!!
         //
         let mut id = tab.uuid.clone(); 
 
         self.tabs.insert(tab.uuid, tab);
+        self.order.push(id);
         self.active_tab = id;
+
+        return id;
     }
 
     fn close_tab(&mut self, uuid: u128) {
@@ -64,18 +67,30 @@ impl App {
             }
         }
     }
+
+    fn set_active_tab(&mut self, uuid: u128) {
+        self.active_tab = uuid;
+    }
+
+    // TODO: Change it to active_tab()
+    fn get_active_tab(&self) -> u128 {
+        self.active_tab
+    }
 }
 
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn add_tab(app: tauri::State<App>, tab: Tab) -> u128 {
+    todo!()
 }
+
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![
+            add_tab,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

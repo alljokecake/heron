@@ -1,6 +1,8 @@
 use std::path::PathBuf;
 use dirs;
+use serde::Deserialize;
 
+#[derive(Deserialize)]
 pub struct Tab {
     pub uuid: u128,
     pub icon: String,
