@@ -2,6 +2,7 @@
 #![allow(unused)]
 
 use std::collections::HashMap;
+use std::sync::Mutex;
 
 mod tab;
 use tab::Tab;
@@ -76,11 +77,34 @@ impl App {
     fn get_active_tab(&self) -> u128 {
         self.active_tab
     }
+
+    fn get_tabs(&self) -> Vec<Tab> {
+        self.order.iter().map(|uuid| self.tabs[uuid].clone()).collect()
+    }
 }
 
 #[tauri::command]
-fn add_tab(app: tauri::State<App>, tab: Tab) -> u128 {
-    todo!()
+fn add_tab(app: tauri::State<Mutex<App>>, tab: Tab) -> u128 {
+    let mut app = app.lock().unwrap();
+    app.add_tab(tab)
+}
+
+#[tauri::command]
+fn close_tab(app: tauri::State<Mutex<App>>, uuid: u128) {
+    let mut app = app.lock().unwrap();
+    app.close_tab(uuid);
+}
+
+#[tauri::command]
+fn get_active_tab(app: tauri::State<Mutex<App>>) -> u128 {
+    let app = app.lock().unwrap();
+    app.get_active_tab()
+}
+
+#[tauri::command]
+fn get_tabs(app: tauri::State<Mutex<App>>) -> Vec<Tab> {
+    let app = app.lock().unwrap();
+    app.get_tabs()
 }
 
 
@@ -88,8 +112,12 @@ fn add_tab(app: tauri::State<App>, tab: Tab) -> u128 {
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
+        .manage(Mutex::new(App::new()))
         .invoke_handler(tauri::generate_handler![
             add_tab,
+            close_tab,
+            get_active_tab,
+            get_tabs,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

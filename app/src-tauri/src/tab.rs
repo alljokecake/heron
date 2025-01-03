@@ -1,8 +1,8 @@
 use std::path::PathBuf;
 use dirs;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize, Clone)]
 pub struct Tab {
     pub uuid: u128,
     pub icon: String,
@@ -17,8 +17,8 @@ impl Tab {
 
     fn documents() -> Self {
         Self {
-            uuid: todo!(),
-            icon: "document.svg".to_string(),
+            uuid: 0,
+            icon: "documents.svg".to_string(),
             path: dirs::document_dir(),
             label: "Documents".to_string(),
             custom: false,
@@ -28,9 +28,9 @@ impl Tab {
 
 // Custom Tabs
 impl Tab {
-    fn settings() -> Self {
+    pub fn settings() -> Self {
         Self {
-            uuid: 0,
+            uuid: 1,
             icon: "settings.svg".to_string(), // How to handle non-img icons?
             path: None,
             label: "Settings".to_string(),
