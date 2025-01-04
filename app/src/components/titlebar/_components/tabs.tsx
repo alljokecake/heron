@@ -8,9 +8,9 @@ import "../titlebar.css";
 // logic on the rust-end.
 //
 // - handleAddTab()'s behaviour is wrong, it should retrieve the default tab
-// from rust or a toml file.
+// from rust or a toml file. Also make it take arguments(: Tab)
 //
-// - Fix handleTabClick() -> index?
+// - Fix handleTabClick() 
 // - Fix handleCloseTab()
 
 const Tabs = () => {
@@ -111,30 +111,30 @@ const Tabs = () => {
                 </div>
                 {isOpen && (
                     <div className="menu">
-                      <div className="menu-item">
+                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon">
                           <img src="drive.svg" alt="Tab Icon" />
                         </div>
                         <div className="text">Local Disk (C:)</div>
                       </div>
-                      <div className="menu-item">
+                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon"><Download size={20} strokeWidth={1.5} color="#32a866" /></div>
                         <div className="text font-bold">Downloads</div>
                       </div>
-                      <div className="menu-item">
+                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon">
                           <img src="documents.svg" alt="Tab Icon" />
                         </div>
                         <div className="text">Documents</div>
                       </div>
-                      <div className="menu-item">
+                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon">
                           <img src="folder.svg" alt="Tab Icon" />
                         </div>
                         <div className="text">heron</div>
                       </div>
                       <div className="menu-item-divider"></div>
-                      <div className="menu-item">
+                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon"><Settings size={20} strokeWidth={1.5} color="#FAFFFF" /></div>
                         <div className="text">Settings</div>
                       </div>

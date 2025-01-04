@@ -90,9 +90,10 @@ impl App {
         self.order.iter().map(|uuid| self.tabs[uuid].clone()).collect()
     }
 
-    fn get_default_tab(&self) -> Tab {
+    fn default_tab(&self) -> Tab {
         Tab::default()
     }
+
 }
 
 #[tauri::command]
@@ -122,7 +123,7 @@ fn get_tabs(app: tauri::State<Mutex<App>>) -> Vec<Tab> {
 #[tauri::command]
 fn get_default_tab(app: tauri::State<Mutex<App>>) -> Tab {
     let app = app.lock().unwrap();
-    app.get_default_tab()
+    app.default_tab()
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
