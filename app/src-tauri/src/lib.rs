@@ -1,4 +1,3 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #![allow(unused)]
 
 use std::collections::HashMap;
@@ -7,7 +6,6 @@ use std::sync::Mutex;
 mod tab;
 use tab::Tab;
 
-// TODO: Introduce lifetimes
 struct App {
     tabs: HashMap<u128, Tab>,
     order: Vec<u128>,
@@ -15,7 +13,6 @@ struct App {
 }
 
 impl App {
-    // Create app with the default tab.
     fn new() -> Self {
         let mut app = Self {
             tabs: HashMap::new(),
@@ -25,7 +22,9 @@ impl App {
 
         app.add_tab(Tab::default());
         // @remove
-        // app.add_tab(Tab::desktop());
+        app.add_tab(Tab::desktop());
+
+        // @remove
         dbg!(app.get_tabs());
         //
 
@@ -33,9 +32,6 @@ impl App {
     }
 
     fn add_tab(&mut self, tab: Tab) -> u128 {
-        //
-        // FIXME: Introduce lifetimes!!!
-        //
 
         // @remove
         println!("Adding tab:\n{:#?}\n", &tab);
@@ -86,13 +82,16 @@ impl App {
         self.active_tab = uuid;
     }
 
-    // TODO: Change it to active_tab()
     fn get_active_tab(&self) -> u128 {
         self.active_tab
     }
 
     fn get_tabs(&self) -> Vec<Tab> {
         self.order.iter().map(|uuid| self.tabs[uuid].clone()).collect()
+    }
+
+    fn get_default_tab(&self) -> Tab {
+        Tab::default()
     }
 }
 
@@ -120,6 +119,11 @@ fn get_tabs(app: tauri::State<Mutex<App>>) -> Vec<Tab> {
     app.get_tabs()
 }
 
+#[tauri::command]
+fn get_default_tab(app: tauri::State<Mutex<App>>) -> Tab {
+    let app = app.lock().unwrap();
+    app.get_default_tab()
+}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -131,6 +135,7 @@ pub fn run() {
             close_tab,
             get_active_tab,
             get_tabs,
+            get_default_tab,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

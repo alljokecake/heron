@@ -3,6 +3,16 @@ import { Plus, X, ChevronDown, Settings, Download } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import "../titlebar.css";
 
+// TODO:
+// - Probably the main issue for our problems is the "order" field. Fix the main
+// logic on the rust-end.
+//
+// - handleAddTab()'s behaviour is wrong, it should retrieve the default tab
+// from rust or a toml file.
+//
+// - Fix handleTabClick() -> index?
+// - Fix handleCloseTab()
+
 const Tabs = () => {
     const [tabs, setTabs] = useState<any[]>([]);
     const [activeTab, setActiveTab] = useState<number>(0);
@@ -22,15 +32,14 @@ const Tabs = () => {
         fetchTabs();
     }, []);
 
-    // FIXME
     const handleTabClick = (index: number) => {
         // It probably should find the Tab ID from corresponding order of it
         setActiveTab(index);
     };
 
-    // FIXME
     const handleAddTab = async () => {
         try {
+            // default_tab
             const newTab = {
                 uuid: Date.now(), // Use a new unique ID (consider using a more robust method)
                 label: "New Tab",
@@ -51,8 +60,9 @@ const Tabs = () => {
         try {
             await invoke("close_tab", { uuid });
             setTabs(prevTabs => prevTabs.filter(tab => tab.uuid !== uuid));
+            const active: number = await invoke("get_active_tab");
             if (tabs.length === 1) {
-                setActiveTab(0);
+                setActiveTab(active);
             } else {
                 setActiveTab(prevActiveTab => (prevActiveTab === uuid ? tabs[0]?.uuid : prevActiveTab));
             }
@@ -64,11 +74,11 @@ const Tabs = () => {
     return (
         <div className="tab_container">
             <div className="tab_list">
-                {tabs.map((tab, index) => (
+                {tabs.map((tab) => (
                     <div
                         key={tab.uuid}
                         className={`tab ${activeTab === tab.uuid ? "active_tab" : ""}`}
-                        onClick={() => handleTabClick(index)}
+                        onClick={() => handleTabClick(tab.uuid)}
                     >
                         <div className="inner">
                             <span className="border_left"></span>
