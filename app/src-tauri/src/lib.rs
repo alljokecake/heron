@@ -24,7 +24,10 @@ impl App {
         };
 
         app.add_tab(Tab::default());
-        app.add_tab(Tab::desktop());
+        // @remove
+        // app.add_tab(Tab::desktop());
+        dbg!(app.get_tabs());
+        //
 
         return app;
     }
@@ -33,11 +36,20 @@ impl App {
         //
         // FIXME: Introduce lifetimes!!!
         //
+
+        // @remove
+        println!("Adding tab:\n{:#?}\n", &tab);
+        //
+
         let mut id = tab.uuid.clone(); 
 
         self.tabs.insert(tab.uuid, tab);
         self.order.push(id);
         self.active_tab = id;
+
+        // @remove
+        println!("Active tab: {}", self.get_active_tab());
+        //
 
         return id;
     }

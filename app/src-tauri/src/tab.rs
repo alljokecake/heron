@@ -1,8 +1,9 @@
 use std::path::PathBuf;
 use dirs;
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Tab {
     pub uuid: u128,
     pub icon: String,
@@ -11,12 +12,19 @@ pub struct Tab {
     pub custom: bool,
 }
 
+// TODO:
+// pub enum Icon {
+//     Svg(String),
+//     Lucide(String),
+// }
+
+
 // Known Folders
 impl Tab {
 
     fn documents() -> Self {
         Self {
-            uuid: 0,
+            uuid: Uuid::new_v4().as_u128(),
             icon: "documents.svg".to_string(),
             path: dirs::document_dir(),
             label: "Documents".to_string(),
@@ -26,7 +34,7 @@ impl Tab {
 
     pub fn downloads() -> Self {
         Self {
-            uuid: 2,
+            uuid: Uuid::new_v4().as_u128(),
             icon: "downloads.svg".to_string(),
             path: dirs::download_dir(),
             label: "downloads".to_string(),
@@ -36,7 +44,7 @@ impl Tab {
 
     pub fn desktop() -> Self {
         Self {
-            uuid: 3,
+            uuid: Uuid::new_v4().as_u128(),
             icon: "desktop.svg".to_string(),
             path: dirs::desktop_dir(),
             label: "Desktop".to_string(),
