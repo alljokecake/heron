@@ -42,7 +42,7 @@ const Tabs = () => {
             // default_tab
             const newTab = {
                 uuid: Date.now(), // Use a new unique ID (consider using a more robust method)
-                label: "New Tab",
+                label: "heron",
                 icon: "folder.svg", // Default icon
                 path: null,
                 custom: false,
