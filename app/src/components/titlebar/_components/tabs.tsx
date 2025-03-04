@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, X, ChevronDown, Settings, Download } from 'lucide-react';
+import { Plus, X, ChevronDown, Settings, Download, Tags } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import "../titlebar.css";
 
@@ -112,20 +112,14 @@ const Tabs = () => {
                 {isOpen && (
                     <div className="menu">
                       <div className="menu-item" onClick={() => handleAddTab()}>
-                        <div className="icon">
-                          <img src="drive.svg" alt="Tab Icon" />
-                        </div>
-                        <div className="text">Local Disk (C:)</div>
-                      </div>
-                      <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon"><Download size={20} strokeWidth={1.5} color="#32a866" /></div>
                         <div className="text font-bold">Downloads</div>
                       </div>
                       <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon">
-                          <img src="documents.svg" alt="Tab Icon" />
+                          <img src="drive.svg" alt="Tab Icon" />
                         </div>
-                        <div className="text">Documents</div>
+                        <div className="text">Local Disk (C:)</div>
                       </div>
                       <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon">
@@ -134,6 +128,10 @@ const Tabs = () => {
                         <div className="text">heron</div>
                       </div>
                       <div className="menu-item-divider"></div>
+                      <div className="menu-item" onClick={() => handleAddTab()}>
+                        <div className="icon"><Tags size={20} strokeWidth={1.5} color="#FAFFFF" /></div>
+                        <div className="text">Tags</div>
+                      </div>
                       <div className="menu-item" onClick={() => handleAddTab()}>
                         <div className="icon"><Settings size={20} strokeWidth={1.5} color="#FAFFFF" /></div>
                         <div className="text">Settings</div>
